@@ -10,8 +10,6 @@
 <script type="text/javascript" src="template/plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
 <!-- Magnific popup -->
 <script type="text/javascript" src="template/plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-<!-- Google Map API -->
-<script type="text/javascript"  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
 <!-- Sticky Nav -->
 <script type="text/javascript" src="template/plugins/Sticky/jquery.sticky.js"></script>
 <!-- Number Counter Script -->
