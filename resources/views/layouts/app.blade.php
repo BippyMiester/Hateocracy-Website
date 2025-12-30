@@ -13,6 +13,10 @@
 
 @include('app.partials.preloader')
 
+
+@include('debug.login')
+
+
 <!--
 Welcome Slider
 ==================================== -->

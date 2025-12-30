@@ -54,17 +54,39 @@
 
 <!-- Updated HTML (Bootstrap 3.x compatible) -->
 <section class="hero-area overlay" style="background-image: url('template/images/banner/hero-area.jpg');">
-    <video autoplay muted loop class="hero-video">
-        <source src="videos/hero.mp4" type="video/mp4">
-    </video>
+    @if (!config('app.debug'))
+        <video autoplay muted loop class="hero-video">
+            <source src="videos/hero.mp4" type="video/mp4">
+        </video>
+    @endif
     <div class="block">
         <div class="video-button">
             <img src="images/logo.png" class="img-circle" style="width: 25%;">
         </div>
         <h2>Hate the sin, love the sinner!</h2>
-        <!-- Use the custom .btn-discord class (keeps Bootstrap .btn styling) -->
-        <a data-scroll href="https://discord.hateocracy.com/" class="btn btn-discord">
-            <i class="fa-brands fa-discord"></i> Join Us
-        </a>
+
+
+        {{-- Discord Login Button --}}
+        @guest
+            <li>
+                <a data-scroll href="{{ route('login.discord') }}" class="btn btn-discord">
+                    <i class="fa-brands fa-discord"></i> Login
+                </a>
+            </li>
+{{--            <!-- Use the custom .btn-discord class (keeps Bootstrap .btn styling) -->--}}
+{{--            <a data-scroll href="https://discord.hateocracy.com/" class="btn btn-discord">--}}
+{{--                <i class="fa-brands fa-discord"></i> Login--}}
+{{--            </a>--}}
+        @endguest
+
+        {{-- User Logged In Dropdown --}}
+        @auth
+            <li>
+                <a data-scroll href="{{ route('user.dashboard') }}" class="btn btn-discord">
+                    <i class="fa-brands fa-discord"></i> Dashboard
+                </a>
+            </li>
+    @endauth
+
     </div>
 </section>
