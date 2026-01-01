@@ -73,10 +73,6 @@
                     <i class="fa-brands fa-discord"></i> Login
                 </a>
             </li>
-{{--            <!-- Use the custom .btn-discord class (keeps Bootstrap .btn styling) -->--}}
-{{--            <a data-scroll href="https://discord.hateocracy.com/" class="btn btn-discord">--}}
-{{--                <i class="fa-brands fa-discord"></i> Login--}}
-{{--            </a>--}}
         @endguest
 
         {{-- User Logged In Dropdown --}}

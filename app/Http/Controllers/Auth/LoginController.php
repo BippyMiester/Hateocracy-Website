@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserSettings;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
@@ -40,10 +41,16 @@ class LoginController extends Controller
             ['id', '=', $discordUser->user['id']]
         ])->first();
 
+        $userSettings = UserSettings::where('user_id', $user->id)->first();
+
         // If user doesn't exist
         if($user === null) {
             // Add User To Database
             $user = new User;
+        }
+
+        if($userSettings === null) {
+            $userSettings = new UserSettings;
         }
 
         // Save the Users Information
@@ -54,6 +61,9 @@ class LoginController extends Controller
         $user->email = $discordUser->user['email'];
         $user->locale = $discordUser->user['locale'];
         $user->save();
+
+        $userSettings->user_id = $user->id;
+        $userSettings->save();
 
         Auth::login($user, true);
 
